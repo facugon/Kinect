@@ -6,7 +6,7 @@ import appi.Models.*;
 import SimpleOpenNI.*;
 import processing.core.*;
 
-import pbox2d.*;
+//import pbox2d.*;
 
 public class Demo extends PApplet {
 
@@ -20,8 +20,8 @@ public class Demo extends PApplet {
 		PApplet.main(new String[] { "--bgcolor=#FFFFFF", "squeleton3D.Demo" });
 	}
 
-	protected PBox2D box2d ;
-	protected VendetaMask model;
+	//protected PBox2D box2d ;
+	protected Raket model;
 	protected SimpleOpenNI kinect ;
 	protected KinectApi kApi ;
 
@@ -38,12 +38,12 @@ public class Demo extends PApplet {
 			
 			kApi = new KinectApi(this,kinect);
 
-			model = new VendetaMask(this);
+			model = new Raket(this);
 					
 			// Create a Box2D object
-			this.box2d = new PBox2D(this);
+			//this.box2d = new PBox2D(this);
 			// Create a "default" world
-			this.box2d.createWorld();
+			//this.box2d.createWorld();
 
 		} catch (Throwable e) {
 			// Print out the exception that occurred
