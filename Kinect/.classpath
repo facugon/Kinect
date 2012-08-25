@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="libs/opengl/gluegen-rt.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Kinect/libs/opengl/natives"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="libs/opengl/jogl.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Kinect/libs/opengl/natives"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="libs/opengl/opengl.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Kinect/libs/opengl/natives"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="libs/processing/core.jar"/>
+	<classpathentry kind="lib" path="libs/processing/OBJLoader.jar"/>
+	<classpathentry kind="lib" path="libs/processing/pbox2d/library/jbox2d_2.1.2_ds_v2.jar"/>
+	<classpathentry kind="lib" path="libs/processing/pbox2d/library/pbox2d.jar"/>
+	<classpathentry kind="lib" path="libs/processing/pbox2d/library/slf4j-api-1.6.4.jar"/>
+	<classpathentry kind="lib" path="libs/processing/pbox2d/library/slf4j-nop-1.6.4.jar"/>
+	<classpathentry kind="lib" path="libs/processing/peasycam/library/peasycam.jar"/>
+	<classpathentry kind="lib" path="libs/processing/SimpleOpenNI_0.24/library/SimpleOpenNI.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Kinect/libs/processing/SimpleOpenNI_0.24/library"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="libs/jbox2d-2.1.2.2/jbox2d-testbed/target/jbox2d-testbed-2.1.2.2-jar-with-dependencies.jar"/>
+	<classpathentry kind="lib" path="libs/jbox2d-2.1.2.2/jbox2d-testbed/target/jbox2d-testbed-2.1.2.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="libs/jbox2d-2.1.2.2/jbox2d-testbed/target/jbox2d-testbed-2.1.2.2-sources.jar"/>
+	<classpathentry kind="lib" path="libs/jbox2d-2.1.2.2/jbox2d-testbed/target/jbox2d-testbed-2.1.2.2.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
