@@ -1,7 +1,7 @@
 package fisica;
 import javax.swing.JFrame;
 
-import org.jbox2d.collision.shapes.CircleShape;
+//import org.jbox2d.collision.shapes.CircleShape;
 import org.jbox2d.collision.shapes.PolygonShape;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.Body;
@@ -18,7 +18,7 @@ import org.jbox2d.testbed.framework.TestbedSettings;
 import org.jbox2d.testbed.framework.TestbedTest;
 import org.jbox2d.testbed.framework.j2d.TestPanelJ2D;
 
-public class VerticalStack extends TestbedTest {
+public class BattleShip extends TestbedTest {
 
 	public static void main(String [ ] args)
 	{
@@ -27,7 +27,7 @@ public class VerticalStack extends TestbedTest {
 		// add tests
 		//TestList.populateModel(model); // populate the provided testbed tests
 		model.addCategory("Custom Tests"); // add a category
-		model.addTest(new VerticalStack()); // add our test
+		model.addTest(new BattleShip()); // add our test
 
 		// add our custom setting "My Range Setting", with a default value of 10, between 0 and 20
 		model.getSettings().addSetting(
@@ -86,96 +86,60 @@ public class VerticalStack extends TestbedTest {
 			Body ground = getWorld().createBody(bd);
 
 			PolygonShape shape = new PolygonShape();
-			shape.setAsEdge(new Vec2(-20.0f, 0.0f), new Vec2(-30.0f, 20.0f));
-			ground.createFixture(shape, 0.0f);
-
-			shape.setAsEdge(new Vec2(20.0f, 0.0f), new Vec2(30.0f, 20.0f));
-			ground.createFixture(shape, 0.0f);
 
 			// set space limits
-			shape.setAsEdge(new Vec2(-30.0f, -30.0f), new Vec2(-30.0f, 30.0f));
+			shape.setAsEdge(new Vec2(-50.0f, -50.0f), new Vec2(-50.0f, 50.0f));
 			ground.createFixture(shape, 0.0f);
 			
-			shape.setAsEdge(new Vec2(30.0f, -30.0f), new Vec2(30.0f, 30.0f));
+			shape.setAsEdge(new Vec2(50.0f, -50.0f), new Vec2(50.0f, 50.0f));
 			ground.createFixture(shape, 0.0f);
 			
-			shape.setAsEdge(new Vec2(30.0f, 30.0f), new Vec2(-30.0f, 30.0f));
+			shape.setAsEdge(new Vec2(50.0f, 50.0f), new Vec2(-50.0f, 50.0f));
 			ground.createFixture(shape, 0.0f);
 			
-			shape.setAsEdge(new Vec2(-30.0f, -20.0f), new Vec2(30.0f, -20.0f));
+			shape.setAsEdge(new Vec2(-50.0f, -50.0f), new Vec2(50.0f, -50.0f));
 			ground.createFixture(shape, 0.0f);
-		}
+			
+			Vec2 vertices[] = new Vec2[3];
+			vertices[0] = new Vec2(0.0f, 0.0f) ;
+			vertices[1] = new Vec2(-2.0f, -4.0f) ;
+			vertices[2] = new Vec2(-4.0f, -2.0f) ;
 
-		float xs[] = new float[] { -10.0f, -5.0f, 0.0f, 5.0f, 10.0f };
+			int count = 3;
 
-		for (int j = 0; j < e_columnCount; ++j)
-		{
-			PolygonShape shape = new PolygonShape();
-			shape.setAsBox(0.5f, 0.5f);
-
-			FixtureDef fd = new FixtureDef();
-			fd.shape = shape;
-			fd.density = 0.1f;
-			fd.friction = 0f;
-			fd.restitution = 1.0f;
-
-			for (int i = 0; i < e_rowCount; ++i)
-			{
-				BodyDef bd = new BodyDef();
-				bd.type = BodyType.DYNAMIC;
-				bd.bullet = true;
-				float x = 0.0f;
-				bd.position.set(xs[j] + x, 0.752f + 1.54f * i);
-				Body body = getWorld().createBody(bd);
-
-				body.createFixture(fd);
-			}
-		}
-
-		m_bullet = null;
-	}
-
-	@Override
-	public void keyPressed(char argKeyChar, int argKeyCode) {
-		switch (argKeyChar) {
-		case ',':
-			/*if (m_bullet != null) {
-				getWorld().destroyBody(m_bullet);
-				m_bullet = null;
-			}*/
-
-		{
-			CircleShape shape = new CircleShape();
-			shape.m_radius = 0.2f;
+			shape = new PolygonShape();
+			shape.set(vertices, count);
 
 			FixtureDef fd = new FixtureDef();
 			fd.shape = shape;
 			fd.density = 10.0f;
-			fd.restitution = 1.0f;
+			fd.restitution = 0f;
 			fd.friction = 0f;
 
-			BodyDef bd = new BodyDef();
+			bd = new BodyDef();
 			bd.type = BodyType.DYNAMIC;
 			bd.bullet = true;
-			bd.position.set(-20.0f, 5.0f);
+			bd.position.set(0.0f, 0.0f);
 
 			m_bullet = getWorld().createBody(bd);
 			m_bullet.createFixture(fd);
 
-			m_bullet.setLinearVelocity(new Vec2(30.0f, 10.0f));
 		}
-		break;
-		}
+	}
+
+	@Override
+	public void keyPressed(char argKeyChar, int argKeyCode)
+	{
 	}
 
 	@Override
 	public void step(TestbedSettings settings) {
 		super.step(settings);
-		addTextLine("Press ',' to launch bullet.");
+		//addTextLine("Press ',' to launch bullet.");
 	}
 
 	@Override
 	public String getTestName() {
-		return "Vertical Stack";
+		return "Battle Ship";
 	}
 }

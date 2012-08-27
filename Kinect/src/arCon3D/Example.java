@@ -38,14 +38,15 @@ public class Example extends PApplet  {
 		//kinect.alternativeViewPointDepthToImage();// turn on depth-color alignment
 
 		// load the background image
-		backgroundImage = loadImage("data/TennisCourt1.png");
-		backgroundImage.resize(640,480);
+//		backgroundImage = loadImage("backgrounds/TennisCourt1.png");
+//		backgroundImage.resize(640,480);
 
 	}
 	
 	public void draw() {
+		background(255);
 		// display the background image
-		image(backgroundImage, 0, 0);
+		//image(backgroundImage, 0, 0);
 		kinect.update();
 
 		if (tracking) {
